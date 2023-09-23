@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Turmas</title>
+</head>
+<body>
+    <p id="escreve"></p>
+    <p id="escreve2"></p>
+    <p id="escreve3"></p>
+    <p id="escreve4"></p>
+    <p id="escreve5"></p>
+    <p id="escreve6"></p>
+    
+    <script>
+        class Pessoa {
+            constructor(cpf, nome) {
+                this.cpf = cpf;
+                this.nome = nome;
+            }
+        }
+
+        class Professor extends Pessoa {
+            constructor(cpf, nome, area, telefone) {
+                super(cpf, nome);
+                this.area = area;
+                this.telefone = telefone;
+            }
+        }
+
+        class Aluno extends Pessoa {
+            constructor(cpf, nome, matricula) {
+                super(cpf, nome);
+                this.matricula = matricula;
+            }
+        }
+
+        class Turma {
+            constructor(professor, alunos, identificacao) {
+                this.professor = professor;
+                this.alunos = alunos;
+                this.identificacao = identificacao;
+            }
+
+           
+        }
+        function imprimeDados(turma){
+                document.getElementById("escreve").innerHTML+=("Turma: "+turma.identificacao);
+                document.getElementById("escreve2").innerHTML+=("Professor: "+turma.professor.nome);
+                document.getElementById("escreve3").innerHTML+=("Área: "+turma.professor.area);
+                document.getElementById("escreve4").innerHTML+=("Telefone:"+turma.professor.telefone);
+                document.getElementById("escreve5").innerHTML +=("Alunos:");
+                this.alunos.forEach((aluno) => {
+                    document.getElementById("escreve6").innerHTML+=("Nome: "+aluno.nome+"Matrícula: "+aluno.matricula)
+                });
+            }
+
+        // Criar objetos professores
+        const professor1 = new Professor("123456789", "Professor 1", "Matemática", "123-456-7890");
+        const professor2 = new Professor("987654321", "Professor 2", "História", "987-654-3210");
+
+        // Criar objetos alunos
+        const aluno1 = new Aluno("111111111", "Aluno 1", "A001");
+        const aluno2 = new Aluno("222222222", "Aluno 2", "A002");
+        const aluno3 = new Aluno("333333333", "Aluno 3", "A003");
+        const aluno4 = new Aluno("444444444", "Aluno 4", "A004");
+        const aluno5 = new Aluno("555555555", "Aluno 5", "A005");
+        const aluno6 = new Aluno("666666666", "Aluno 6", "A006");
+
+        // Criar objetos turmas
+        const turma1 = new Turma(professor1, [aluno1, aluno2, aluno3, aluno4], "Turma 1");
+        const turma2 = new Turma(professor2, [aluno1, aluno2, aluno5, aluno6], "Turma 2");
+
+        // Chamar o método imprimeDados das turmas
+        imprimeDados(turma1);
+        imprimeDados(turma2);
+    </script>
+</body>
+</html>
